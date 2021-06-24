@@ -1,11 +1,29 @@
 [
   {
-    "type": "sourceFile",
+    "type": "source_file",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "alphabets",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
+    }
   },
   {
-    "type": "hello",
-    "named": false
+    "type": "alphabets",
+    "named": true
+  },
+  {
+    "type": "number",
+    "named": true
   }
 ]

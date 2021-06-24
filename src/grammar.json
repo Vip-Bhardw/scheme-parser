@@ -1,9 +1,29 @@
 {
   "name": "Scheme",
   "rules": {
-    "sourceFile": {
-      "type": "STRING",
-      "value": "hello"
+    "source_file": {
+      "type": "REPEAT",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "number"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "alphabets"
+          }
+        ]
+      }
+    },
+    "alphabets": {
+      "type": "PATTERN",
+      "value": "[a-z]+"
+    },
+    "number": {
+      "type": "PATTERN",
+      "value": "\\d+"
     }
   },
   "extras": [
