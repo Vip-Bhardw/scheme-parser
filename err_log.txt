@@ -1,0 +1,10 @@
+Be sure to have npm, NodeJS already installed in Linux.
+
+The windows and Linux versions work the same, but have a few differences
+  The Linux version works easily, following the exact same steps as provided in the documentation.
+  Windows version has to be tweaked a little bit.
+
+Running the windows version in linux gave an error regarding some "event.js".
+
+
+ ---------------------------------------------------- LOG 1 complete.
