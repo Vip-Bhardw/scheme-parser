@@ -1,5 +1,89 @@
 [
   {
+    "type": "args",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "functionBody",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "args",
+          "named": true
+        },
+        {
+          "type": "returnStatement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "functionDefinition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "args",
+          "named": true
+        },
+        {
+          "type": "functionBody",
+          "named": true
+        },
+        {
+          "type": "functionName",
+          "named": true
+        },
+        {
+          "type": "returnStatement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "functionName",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "operator",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "returnStatement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "args",
+          "named": true
+        },
+        {
+          "type": "operator",
+          "named": true
+        },
+        {
+          "type": "returnStatement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "source_file",
     "named": true,
     "fields": {},
@@ -8,22 +92,46 @@
       "required": false,
       "types": [
         {
-          "type": "alphabets",
-          "named": true
-        },
-        {
-          "type": "number",
+          "type": "functionDefinition",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "alphabets",
-    "named": true
+    "type": "(",
+    "named": false
   },
   {
-    "type": "number",
-    "named": true
+    "type": "(define ",
+    "named": false
+  },
+  {
+    "type": "(define (",
+    "named": false
+  },
+  {
+    "type": "(lambda (",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": "*",
+    "named": false
+  },
+  {
+    "type": "+",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
+    "type": "/",
+    "named": false
   }
 ]
