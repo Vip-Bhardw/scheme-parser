@@ -8,7 +8,7 @@ Running the windows version in linux gave an error regarding some "event.js".
 
 
 LOG 1 complete.=================================================================
-
+================================================================================
 
 Not able to use the regex : -
 commentMultiLine: $ => (/./|/\n/)*,
@@ -41,3 +41,4 @@ BASICALLY, removed the multiline closing tag from $.comments and put it in $.com
     for a case which might have => ;\n
 )
 ISSUE RESOLVED, Log 2 complete==================================================
+================================================================================
