@@ -2,33 +2,37 @@ module.exports = grammar({
     name: 'Scheme',
 
     rules: {
-        source_file: $ => repeat(choice($.functionDefinition)),
+        source_file: $ => repeat(choice($.functionDefinition, $.comments)),
 
-        functionDefinition: $ => choice(
-            seq(
-                '(define ', $.functionName, $.functionBody, ')'
-            ), seq(
-                '(define (', $.functionName, $.args, ')', $.returnStatement, ')'
-            )
+        comments: $ => choice(
+            seq(';', $.commentSingleLine),
+            seq('#|', $.commentMultiLine)
         ),
 
-        functionName: $ => /[\w.]+/,
+        commentSingleLine: $ => seq(repeat(/./), /\n/),
 
-        functionBody: $ => seq(
-            '(lambda (', $.args, ')', $.returnStatement, ')'
+        commentMultiLine: $ => seq(repeat(choice(/./, /\n/)),'|#'),
+
+        functionDefinition: $ => choice($.comments,
+            seq('(define ', $.functionName, $.functionBody, ')'),
+            seq('(define (', $.functionName, $.args, ')', $.returnStatement, ')')
         ),
 
-        returnStatement: $ => seq(
-            '(', $.operator, $.args,
-            choice(
-                $.args, $.returnStatement
-            ),
-            ')'
+        functionName: $ => choice(/[\w.]+/, $.comments),
+
+        functionBody: $ => choice(
+            seq('(lambda (', $.args, ')', $.returnStatement, ')'),
+            $.comments
         ),
 
-        operator: $ => choice(
-            '+', '-', '*', '/'
+        returnStatement: $ => choice(
+            seq('(', $.operator, $.args,
+                choice($.args, $.returnStatement),
+                ')'
+            ), $.comments
         ),
+
+        operator: $ => choice('+', '-', '*', '/'),
 
         args: $ => /[\w.]+/,
 

@@ -9,9 +9,85 @@
           {
             "type": "SYMBOL",
             "name": "functionDefinition"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "comments"
           }
         ]
       }
+    },
+    "comments": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": ";"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "commentSingleLine"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "#|"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "commentMultiLine"
+            }
+          ]
+        }
+      ]
+    },
+    "commentSingleLine": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "PATTERN",
+            "value": "."
+          }
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\n"
+        }
+      ]
+    },
+    "commentMultiLine": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "."
+              },
+              {
+                "type": "PATTERN",
+                "value": "\\n"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "|#"
+        }
+      ]
     },
     "functionDefinition": {
       "type": "CHOICE",

@@ -7,4 +7,37 @@ The windows and Linux versions work the same, but have a few differences
 Running the windows version in linux gave an error regarding some "event.js".
 
 
- ---------------------------------------------------- LOG 1 complete.
+LOG 1 complete.=================================================================
+
+
+Not able to use the regex : -
+commentMultiLine: $ => (/./|/\n/)*,
+                                ^
+SyntaxError: Unexpected token ,
+
+----------------------------------
+
+Not able to use the regex : -
+commentMultiLine: $ => repeat(choice( /./, /\n/) ),
+
+The rule `commentMultiLine` matches the empty string.
+Tree-sitter does not support syntactic rules that match the empty string
+unless they are used only as the grammar's start rule.
+
+==================================
+Instead used :-
+commentMultiLine: $ => seq(repeat(choice(/./, /\n/)),'|#'),
+
+                        AND
+
+comments: $ => choice(
+    seq(';', $.commentSingleLine),
+    seq('#|', $.commentMultiLine)
+),
+
+BASICALLY, removed the multiline closing tag from $.comments and put it in $.commentMultiLine, therefore $.commentMultiLine is no longer an empty string even if we comment with => #||#, ie, nothing inside.
+(
+    SAME THING happened for commentSingleLine),
+    for a case which might have => ;\n
+)
+ISSUE RESOLVED, Log 2 complete==================================================
