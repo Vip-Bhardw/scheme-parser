@@ -13,23 +13,18 @@ module.exports = grammar({
 
         commentMultiLine: $ => seq(repeat(choice(/./, /\n/)),'|#'),
 
-        functionDefinition: $ => choice($.comments,
+        functionDefinition: $ => choice(
             seq('(define ', $.functionName, $.functionBody, ')'),
             seq('(define (', $.functionName, $.args, ')', $.returnStatement, ')')
         ),
 
-        functionName: $ => choice(/[\w.]+/, $.comments),
+        functionName: $ => /[\w.]+/,
 
-        functionBody: $ => choice(
-            seq('(lambda (', $.args, ')', $.returnStatement, ')'),
-            $.comments
-        ),
+        functionBody: $ => seq('(lambda (', $.args, ')', $.returnStatement, ')'),
 
-        returnStatement: $ => choice(
-            seq('(', $.operator, $.args,
-                choice($.args, $.returnStatement),
-                ')'
-            ), $.comments
+        returnStatement: $ => seq('(', $.operator, $.args,
+            repeat(choice($.args, $.returnStatement)),
+            ')'
         ),
 
         operator: $ => choice('+', '-', '*', '/'),
