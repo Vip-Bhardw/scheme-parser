@@ -97,7 +97,11 @@
           "members": [
             {
               "type": "STRING",
-              "value": "(define "
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "keyword"
             },
             {
               "type": "SYMBOL",
@@ -118,7 +122,15 @@
           "members": [
             {
               "type": "STRING",
-              "value": "(define ("
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "keyword"
+            },
+            {
+              "type": "STRING",
+              "value": "("
             },
             {
               "type": "SYMBOL",
@@ -153,7 +165,15 @@
       "members": [
         {
           "type": "STRING",
-          "value": "(lambda ("
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "keyword"
+        },
+        {
+          "type": "STRING",
+          "value": "("
         },
         {
           "type": "SYMBOL",
@@ -210,6 +230,23 @@
         }
       ]
     },
+    "keyword": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "define"
+        },
+        {
+          "type": "STRING",
+          "value": "lambda"
+        },
+        {
+          "type": "STRING",
+          "value": "if"
+        }
+      ]
+    },
     "operator": {
       "type": "CHOICE",
       "members": [
@@ -234,14 +271,6 @@
     "args": {
       "type": "PATTERN",
       "value": "[\\w.]+"
-    },
-    "alphabets": {
-      "type": "PATTERN",
-      "value": "[a-z]*"
-    },
-    "numbers": {
-      "type": "PATTERN",
-      "value": "\\d*"
     }
   },
   "extras": [

@@ -42,3 +42,5 @@ BASICALLY, removed the multiline closing tag from $.comments and put it in $.com
 )
 ISSUE RESOLVED, Log 2 complete==================================================
 ================================================================================
+
+Not able to implement "omnipotent-commenting" currently, need help :(.

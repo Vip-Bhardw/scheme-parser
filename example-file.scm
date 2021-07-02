@@ -3,7 +3,7 @@
         (* x x)
     )
 )
-(define (cube x)
+(define (#|cube|# cubic x)
     (* x x x)
 )
 ;

@@ -46,6 +46,10 @@
           "named": true
         },
         {
+          "type": "keyword",
+          "named": true
+        },
+        {
           "type": "returnStatement",
           "named": true
         }
@@ -73,6 +77,10 @@
           "named": true
         },
         {
+          "type": "keyword",
+          "named": true
+        },
+        {
           "type": "returnStatement",
           "named": true
         }
@@ -81,6 +89,11 @@
   },
   {
     "type": "functionName",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "keyword",
     "named": true,
     "fields": {}
   },
@@ -140,18 +153,6 @@
     "named": false
   },
   {
-    "type": "(define ",
-    "named": false
-  },
-  {
-    "type": "(define (",
-    "named": false
-  },
-  {
-    "type": "(lambda (",
-    "named": false
-  },
-  {
     "type": ")",
     "named": false
   },
@@ -173,6 +174,18 @@
   },
   {
     "type": ";",
+    "named": false
+  },
+  {
+    "type": "define",
+    "named": false
+  },
+  {
+    "type": "if",
+    "named": false
+  },
+  {
+    "type": "lambda",
     "named": false
   },
   {
